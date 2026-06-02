@@ -1,13 +1,9 @@
 <script setup lang="ts">
-
+import "../../app/scss/pages/home.scss";
 </script>
 
 <template>
-  <header>
-    <h1>home</h1>
-  </header>
+    <div class="container">
+      <h1>main</h1>
+    </div>
 </template>
-
-<style scoped>
-
-</style>

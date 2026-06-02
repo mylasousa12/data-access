@@ -1,0 +1,10 @@
+html > body > div > footer {
+  background-color: #0000cc;
+  height: 100px;
+  width: 100%;
+
+  > div.container {
+    height: 100px;
+    background-color: #00bb00;
+  }
+}

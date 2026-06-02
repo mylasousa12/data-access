@@ -1,0 +1,5 @@
+@use "../partials/Header/variables";
+
+html > body > div > main {
+  min-height: calc(100vh - #{variables.$header-height});
+}

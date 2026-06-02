@@ -1,3 +1,5 @@
+import {defineNuxtConfig} from "nuxt/config";
+
 export default defineNuxtConfig({
     routeRules: {
         '/':{redirect: '/home'}
@@ -6,7 +8,7 @@ export default defineNuxtConfig({
         head: {
             title: 'Tripfy',
             link: [
-                { rel: 'icon', type: 'image/png', href: '/logo1.png' }
+                { rel: 'icon', type: 'image/x-icon', href:'/favicon.ico' }
             ]
         }
     }
