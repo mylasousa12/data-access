@@ -2,6 +2,11 @@ import RegisterSchema from "@/app/auth/register/RegisterSchema";
 import {ZodError, z} from "zod";
 import * as bcrypt from 'bcrypt';
 import {prisma} from "@/lib/prisma";
+import {optionsResponse} from "@/core/api/Helpers/Cors";
+
+export function OPTIONS() {
+    return optionsResponse()
+}
 
 export async function POST(request: Request) {
     const body = await request.json();

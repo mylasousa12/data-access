@@ -4,6 +4,11 @@ import {prisma} from "@/lib/prisma";
 import {NextResponse} from "next/server";
 import {z, ZodError} from "zod";
 import ResetPasswordSchema from "@/app/auth/forgot-password/ResetPasswordSchema";
+import {optionsResponse} from "@/core/api/Helpers/Cors";
+
+export function OPTIONS() {
+    return optionsResponse()
+}
 
 export async function POST(req: Request) {
     const body = await req.json();

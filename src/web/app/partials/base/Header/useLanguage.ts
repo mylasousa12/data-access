@@ -1,6 +1,6 @@
 import {ref} from "vue";
 
-const selectedLanguage = ref('PT');
+const selectedLanguage = ref<string>('PT');
 
 export function useLanguage() {
     const languages = [

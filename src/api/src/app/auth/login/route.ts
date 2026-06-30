@@ -3,6 +3,11 @@ import * as bcrypt from 'bcrypt';
 import {prisma} from "@/lib/prisma";
 import {z, ZodError} from "zod";
 import {generateToken} from "@/core/api/Helpers/JWT";
+import {optionsResponse} from "@/core/api/Helpers/Cors";
+
+export function OPTIONS() {
+    return optionsResponse()
+}
 
 export async function POST(request: Request) {
     const body = await request.json();

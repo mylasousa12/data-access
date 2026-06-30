@@ -9,7 +9,8 @@ export default z.object({
     number: z.int().default(0),
     cep:z.string().length(8),
     complement:z.string().max(255).nullable(),
-    state: z.string().length(2)
+    state: z.string().length(2),
+    cpf: z.string().length(11).regex(/^\d{11}$/, 'CPF deve conter 11 dígitos numéricos')
 
 }).refine(
     async (data) => {
