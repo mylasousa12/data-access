@@ -1,0 +1,446 @@
+@use "variables";
+
+// ─── Variáveis ───────────────────────────────────────────────────────────────
+
+$sidebar-width:   300px;
+$color-bg:        #FFFFFF;
+$color-border:    #E9ECF5;
+$color-text:      #1A1E7A;
+$color-purple:    #6D4CFF;
+$color-hover-bg:  #F4F1FF;
+$color-gradient:  linear-gradient(90deg, #2563EB, $color-purple, #8B5CF6);
+$color-overlay:   #0A0F3C;
+$icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
+
+// ─── Mixins ───────────────────────────────────────────────────────────────────
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin icon-active {
+  filter: $icon-tint;
+}
+
+// ─── Transitions Vue ────────────────────────────────────────────────────────
+
+.ms-overlay {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.28s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.ms-panel {
+  &-enter-active {
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  }
+
+  &-leave-active {
+    transition: transform 0.26s cubic-bezier(0.4, 0, 1, 1), opacity 0.22s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+// ─── Overlay ────────────────────────────────────────────────────────────────
+
+.mobile-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($color-overlay, 0.42);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 998;
+  cursor: pointer;
+}
+
+// ─── Sidebar ─────────────────────────────────────────────────────────────────
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: $sidebar-width;
+  height: 100dvh;
+  background: $color-bg;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid $color-border;
+  box-shadow: -16px 0 56px rgba($color-overlay, 0.13);
+  overflow: hidden;
+
+  // ── Header ────────────────────────────────────────────────────────────────
+
+  &__header {
+    @include flex-center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 0 38px 0 0;
+    border-bottom: 1px solid $color-border;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    width: 160px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  &__close {
+    @include flex-center;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: 1.5px solid $color-border;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.22s ease;
+
+    > img {
+      height: 15px;
+      filter: $icon-tint;
+    }
+
+    &:hover {
+      background: $color-hover-bg;
+      border-color: $color-purple;
+      transform: rotate(90deg);
+    }
+  }
+
+  // ── Barra gradiente ───────────────────────────────────────────────────────
+
+  &__gradient-bar {
+    height: 2.5px;
+    background: $color-gradient;
+    flex-shrink: 0;
+  }
+
+  // ── Body scrollável ───────────────────────────────────────────────────────
+
+  &__body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 0 8px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // ── Labels de seção ───────────────────────────────────────────────────────
+
+  &__section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: rgba($color-text, 0.32);
+    padding: 16px 24px 6px;
+    margin: 0;
+
+    &--spaced {
+      padding-top: 20px;
+      margin-top: 6px;
+      border-top: 1px solid $color-border;
+    }
+  }
+
+  // ── Lista de navegação ────────────────────────────────────────────────────
+
+  &__nav {
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  // ── Items com entrada escalonada ──────────────────────────────────────────
+
+  &__item {
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) .mobile-sidebar__link {
+        animation-delay: #{($i - 1) * 45}ms;
+      }
+    }
+  }
+
+  // ── Link ──────────────────────────────────────────────────────────────────
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 10px 10px 12px;
+    border-radius: 10px;
+    color: $color-text;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    animation: ms-slide-in 0.32s ease both;
+    transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+
+    &:hover {
+      background: $color-hover-bg;
+      color: $color-purple;
+      transform: translateX(2px);
+
+      .mobile-sidebar__icon-wrap {
+        background: rgba($color-purple, 0.13);
+
+        > img {
+          @include icon-active;
+          transform: scale(1.08);
+        }
+      }
+
+      .mobile-sidebar__chevron {
+        opacity: 1;
+        transform: translateX(0);
+        color: $color-purple;
+      }
+    }
+
+    &.router-link-active {
+      background: $color-hover-bg;
+      color: $color-purple;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 52%;
+        width: 3px;
+        border-radius: 999px;
+        background: $color-gradient;
+      }
+
+      .mobile-sidebar__icon-wrap {
+        background: rgba($color-purple, 0.13);
+
+        > img {
+          @include icon-active;
+        }
+      }
+
+      .mobile-sidebar__chevron {
+        opacity: 1;
+        transform: translateX(0);
+        color: $color-purple;
+      }
+    }
+  }
+
+  // ── Card do usuário autenticado ───────────────────────────────────────────
+
+  &__user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px 16px;
+  }
+
+  &__user-avatar {
+    @include flex-center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: $color-gradient;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__user-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0;
+  }
+
+  &__user-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba($color-text, 0.42);
+    margin: 0;
+  }
+
+  // ── Logout ────────────────────────────────────────────────────────────────
+
+  &__logout-wrap {
+    padding: 0 10px 8px;
+    margin-top: 6px;
+    border-top: 1px solid $color-border;
+    padding-top: 10px;
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 10px 10px 10px 12px;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    color: #DC2626;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.16s ease, transform 0.16s ease;
+
+    &:hover {
+      background: #FEE2E2;
+      transform: translateX(2px);
+
+      .mobile-sidebar__icon-wrap--danger {
+        background: rgba(220, 38, 38, .14);
+
+        > img {
+          transform: scale(1.08);
+        }
+      }
+
+      .mobile-sidebar__chevron {
+        opacity: 1;
+        transform: translateX(0);
+        color: #DC2626;
+      }
+    }
+  }
+
+  // ── Ícone ─────────────────────────────────────────────────────────────────
+
+  &__icon-wrap {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba($color-purple, 0.06);
+    flex-shrink: 0;
+    transition: background 0.16s ease;
+
+    > img {
+      height: 18px;
+      transition: filter 0.16s ease, transform 0.16s ease;
+    }
+
+    &--danger {
+      background: rgba(220, 38, 38, .07);
+
+      > img {
+        filter: invert(20%) sepia(90%) saturate(700%) hue-rotate(335deg);
+        transition: filter 0.16s ease, transform 0.16s ease;
+      }
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__chevron {
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0;
+    transform: translateX(-4px);
+    color: rgba($color-purple, 0.5);
+    flex-shrink: 0;
+    transition: opacity 0.16s ease, transform 0.16s ease, color 0.16s ease;
+  }
+
+  // ── Footer CTA ────────────────────────────────────────────────────────────
+
+  &__footer {
+    flex-shrink: 0;
+    padding: 16px 16px 32px;
+    border-top: 1px solid $color-border;
+  }
+
+  &__footer-tagline {
+    font-size: 11.5px;
+    color: rgba($color-text, 0.4);
+    font-weight: 500;
+    margin: 0 0 10px 2px;
+  }
+
+  &__cta {
+    @include flex-center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 20px;
+    background: $color-gradient;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba($color-purple, 0.28);
+    transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+
+    &:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba($color-purple, 0.38);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 12px rgba($color-purple, 0.22);
+    }
+  }
+
+  &__cta-arrow {
+    transition: transform 0.18s ease;
+
+    .mobile-sidebar__cta:hover & {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// ─── Animação de entrada ─────────────────────────────────────────────────────
+
+@keyframes ms-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

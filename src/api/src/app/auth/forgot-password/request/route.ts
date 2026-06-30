@@ -5,6 +5,11 @@ import ForgotPasswordSchema from "@/app/auth/forgot-password/request/Forgot-Pass
 import {Env} from "@/core/api/Helpers/Env";
 import {sendResetPasswordEmail} from "@/core/api/services/emails/sendResetPasswordEmail";
 import {NextResponse} from "next/server";
+import {optionsResponse} from "@/core/api/Helpers/Cors";
+
+export function OPTIONS() {
+    return optionsResponse()
+}
 
 export async function POST(request: Request) {
     const body = await request.json();
@@ -81,7 +86,7 @@ export async function POST(request: Request) {
         return `${Env.get("TRIPFY_API_BASE_URL")}/reset-password?token=${token}`;
     }
 
-    async function  sendMail(email:string, token: string): Promise<string> {
+    async function sendMail(email:string, token: string): Promise<string> {
         return await sendResetPasswordEmail(email, mountResetLinkByToken(token));
     }
 }
