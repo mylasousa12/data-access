@@ -1,11 +1,13 @@
+@use "../settings/colors";
+
 .profile {
     padding: 2.5rem 0 4rem;
 
     &__hero {
         background: #FFFFFF;
-        border: 1px solid #E9ECF5;
+        border: 1px solid colors.$border;
         border-radius: 20px;
-        box-shadow: 0 8px 40px rgba(15, 31, 99, .07);
+        box-shadow: 0 8px 40px rgba(colors.$shadow-color, .07);
         padding: 2rem 2.5rem;
         display: flex;
         align-items: center;
@@ -17,7 +19,7 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #2563EB, #6D4CFF);
+        background: colors.$avatar-gradient;
         color: #FFFFFF;
         font-size: 2rem;
         font-weight: 700;
@@ -25,7 +27,7 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        box-shadow: 0 6px 24px rgba(109, 76, 255, .28);
+        box-shadow: 0 6px 24px rgba(colors.$purple, .28);
     }
 
     &__hero-info {
@@ -36,7 +38,7 @@
     &__name {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #1A1E7A;
+        color: colors.$navy;
         margin: 0 0 .25rem;
         white-space: nowrap;
         overflow: hidden;
@@ -45,15 +47,15 @@
 
     &__email {
         font-size: .925rem;
-        color: #6B7280;
+        color: colors.$muted;
         margin: 0;
     }
 
     &__section {
         background: #FFFFFF;
-        border: 1px solid #E9ECF5;
+        border: 1px solid colors.$border;
         border-radius: 20px;
-        box-shadow: 0 8px 40px rgba(15, 31, 99, .07);
+        box-shadow: 0 8px 40px rgba(colors.$shadow-color, .07);
         padding: 2rem 2.5rem;
     }
 
@@ -62,10 +64,10 @@
         font-weight: 700;
         letter-spacing: .1em;
         text-transform: uppercase;
-        color: #6D4CFF;
+        color: colors.$purple;
         margin: 0 0 1.25rem;
         padding-bottom: .75rem;
-        border-bottom: 1px solid #E9ECF5;
+        border-bottom: 1px solid colors.$border;
     }
 
     &__grid {
@@ -79,8 +81,8 @@
     }
 
     &__field {
-        background: #F8FAFC;
-        border: 1px solid #E9ECF5;
+        background: colors.$light-bg;
+        border: 1px solid colors.$border;
         border-radius: 12px;
         padding: .875rem 1.125rem;
 
@@ -89,7 +91,7 @@
         }
 
         &--empty &-value {
-            color: #9CA3AF;
+            color: colors.$placeholder;
             font-style: italic;
         }
     }
@@ -97,7 +99,7 @@
     &__field-label {
         font-size: .75rem;
         font-weight: 600;
-        color: #9CA3AF;
+        color: colors.$placeholder;
         text-transform: uppercase;
         letter-spacing: .06em;
         margin: 0 0 .3rem;
@@ -106,7 +108,7 @@
     &__field-value {
         font-size: .975rem;
         font-weight: 600;
-        color: #1A1E7A;
+        color: colors.$navy;
         margin: 0;
     }
 
@@ -115,7 +117,7 @@
         justify-content: center;
         align-items: center;
         min-height: 200px;
-        color: #6B7280;
+        color: colors.$muted;
         font-size: .95rem;
     }
 
@@ -124,7 +126,7 @@
         justify-content: center;
         align-items: center;
         min-height: 200px;
-        color: #DC2626;
+        color: colors.$danger;
         font-size: .95rem;
     }
 }

@@ -11,7 +11,7 @@ import "../../scss/partials/footer.scss";
       <!-- Brand -->
       <div class="footer__brand">
         <NuxtLink to="/home" class="footer__logo-link">
-          <img src="~/assets/images/logo_tripfy.png" alt="Tripfy" class="footer__logo" />
+          <img src="/images/logo_tripfy.png" alt="Tripfy" class="footer__logo" />
         </NuxtLink>
         <p class="footer__tagline">
           Sua plataforma completa para explorar o mundo com praticidade, economia e segurança.

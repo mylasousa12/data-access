@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Read(///wsl.localhost/Ubuntu/mnt/**)",
-      "Read(///wsl.localhost/Ubuntu//**)"
+      "Read(///wsl.localhost/Ubuntu//**)",
+      "Bash(mkdir -p \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/auth\")",
+      "Bash(mv \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/login.scss\" \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/auth/login.scss\")",
+      "Bash(mv \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/register.scss\" \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/auth/register.scss\")",
+      "Bash(mv \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/forgot-password.scss\" \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/auth/forgot-password.scss\")",
+      "Bash(mv \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/reset-password.scss\" \"//wsl.localhost/Ubuntu/home/camila/projects/data-access/src/web/app/scss/pages/auth/reset-password.scss\")",
+      "Bash(mkdir -p /home/camila/projects/data-access/src/web/app/scss/pages/auth)",
+      "Bash(mv /home/camila/projects/data-access/src/web/app/scss/pages/login.scss /home/camila/projects/data-access/src/web/app/scss/pages/auth/login.scss)",
+      "Bash(mv /home/camila/projects/data-access/src/web/app/scss/pages/register.scss /home/camila/projects/data-access/src/web/app/scss/pages/auth/register.scss)",
+      "Bash(mv /home/camila/projects/data-access/src/web/app/scss/pages/forgot-password.scss /home/camila/projects/data-access/src/web/app/scss/pages/auth/forgot-password.scss)",
+      "Bash(mv /home/camila/projects/data-access/src/web/app/scss/pages/reset-password.scss /home/camila/projects/data-access/src/web/app/scss/pages/auth/reset-password.scss)"
     ]
   }
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-definePageMeta({layout: 'auth'})
+import "~/scss/pages/auth/login.scss";
+definePageMeta({layout: 'auth-layout-base', path: '/login'})
 
 const {login} = useAuth()
 const form = reactive({email: '', password: ''})

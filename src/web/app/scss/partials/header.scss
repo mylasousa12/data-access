@@ -1,4 +1,5 @@
 @use "./Header/variables";
+@use "../settings/colors";
 
 html > body > div > header {
   position: sticky;
@@ -7,7 +8,7 @@ html > body > div > header {
   height: variables.$header-height;
   width: 100%;
   background: #FFFFFF;
-  border-bottom: 2px solid #E9ECF5;
+  border-bottom: 2px solid colors.$border;
 
   > div.container {
     height: variables.$header-height;
@@ -16,7 +17,7 @@ html > body > div > header {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    border-bottom: 2px solid #E9ECF5;
+    border-bottom: 2px solid colors.$border;
 
     > #menu-mobile-button {
       display: none;
@@ -38,7 +39,7 @@ html > body > div > header {
       > li > a {
         font-size: 16px;
         font-weight: 600;
-        color: #1A1E7A;
+        color: colors.$navy;
         transition: color .3s ease;
         position: relative;
 
@@ -50,18 +51,13 @@ html > body > div > header {
           width: 0;
           height: 3px;
           border-radius: 999px;
-          background: linear-gradient(
-                  90deg,
-                  #2563EB 0%,
-                  #6D4CFF 50%,
-                  #8B5CF6 100%
-          );
+          background: colors.$brand-gradient;
           transform: translateX(-50%);
           transition: width .3s ease;
         }
 
         &:hover {
-          color: #6D4CFF;
+          color: colors.$purple;
         }
 
         &:hover::after {
@@ -82,7 +78,7 @@ html > body > div > header {
         border: none;
 
         > span {
-          color: #1A1E7A;
+          color: colors.$navy;
           font-weight: 600;
         }
       }
@@ -95,9 +91,9 @@ html > body > div > header {
         min-width: 180px;
         padding: 8px;
         background-color: #FFFFFF;
-        border: 1px solid #E9ECF5;
+        border: 1px solid colors.$border;
         border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(15, 31, 99, .08);
+        box-shadow: 0 8px 24px rgba(colors.$shadow-color, .08);
         z-index: 999;
 
         > li {
@@ -105,11 +101,11 @@ html > body > div > header {
           border-radius: 8px;
           cursor: pointer;
           transition: .3s ease;
-          color: #1A1E7A;
+          color: colors.$navy;
 
           &:hover {
-            background: #F4F1FF;
-            color: #6D4CFF;
+            background: colors.$purple-light;
+            color: colors.$purple;
           }
         }
       }
@@ -134,18 +130,18 @@ html > body > div > header {
         justify-content: center;
         height: 44px;
         padding: 0 24px;
-        border: 1px solid #E9ECF5;
+        border: 1px solid colors.$border;
         border-radius: 12px;
         transition: .3s ease;
 
         > a {
-          color: #1A1E7A;
+          color: colors.$navy;
           font-size: 14px;
           font-weight: 600;
         }
 
         &:hover {
-          background: #F8FAFC;
+          background: colors.$light-bg;
           border-color: #D8DDF0;
         }
       }
@@ -159,9 +155,9 @@ html > body > div > header {
           gap: 10px;
           height: 44px;
           padding: 0 14px 0 8px;
-          border: 1.5px solid #6D4CFF;
+          border: 1.5px solid colors.$purple;
           border-radius: 12px;
-          background: #F4F1FF;
+          background: colors.$purple-light;
           cursor: pointer;
           transition: .3s ease;
 
@@ -169,7 +165,7 @@ html > body > div > header {
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #2563EB, #6D4CFF);
+            background: colors.$avatar-gradient;
             color: #FFFFFF;
             font-size: 13px;
             font-weight: 700;
@@ -180,7 +176,7 @@ html > body > div > header {
           }
 
           .user-btn__name {
-            color: #6D4CFF;
+            color: colors.$purple;
             font-size: 14px;
             font-weight: 700;
             white-space: nowrap;
@@ -199,24 +195,24 @@ html > body > div > header {
 
           &:hover {
             background: #EDE8FF;
-            border-color: #5B3FE0;
+            border-color: darken(colors.$purple, 8%);
             transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(109, 76, 255, .18);
+            box-shadow: 0 6px 18px rgba(colors.$purple, .18);
           }
         }
 
         > .user-dropdown {
-          $icon-purple: invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
-          $icon-danger: invert(20%) sepia(90%) saturate(700%) hue-rotate(335deg);
+          $icon-purple: colors.$filter-nav-icon;
+          $icon-danger: colors.$filter-danger-icon;
 
           position: absolute;
           top: calc(100% + 10px);
           right: 0;
           min-width: 220px;
           background: #FFFFFF;
-          border: 1px solid #E9ECF5;
+          border: 1px solid colors.$border;
           border-radius: 14px;
-          box-shadow: 0 8px 32px rgba(15, 31, 99, .12);
+          box-shadow: 0 8px 32px rgba(colors.$shadow-color, .12);
           padding: 8px;
           z-index: 999;
 
@@ -227,7 +223,7 @@ html > body > div > header {
             width: 34px;
             height: 34px;
             border-radius: 8px;
-            background: rgba(109, 76, 255, .06);
+            background: rgba(colors.$purple, .06);
             flex-shrink: 0;
             transition: background .16s ease;
 
@@ -237,7 +233,7 @@ html > body > div > header {
             }
 
             &--danger {
-              background: rgba(220, 38, 38, .07);
+              background: rgba(colors.$danger, .07);
 
               > img {
                 filter: $icon-danger;
@@ -256,7 +252,7 @@ html > body > div > header {
 
           .user-dropdown__divider {
             height: 1px;
-            background: #E9ECF5;
+            background: colors.$border;
             margin: 6px 4px;
           }
 
@@ -270,19 +266,19 @@ html > body > div > header {
               gap: 10px;
               padding: 9px 10px;
               border-radius: 9px;
-              color: #374151;
+              color: colors.$text-dark;
               font-size: .875rem;
               font-weight: 500;
               text-decoration: none;
               transition: background .16s ease, color .16s ease, transform .16s ease;
 
               &:hover {
-                background: #F4F1FF;
-                color: #6D4CFF;
+                background: colors.$purple-light;
+                color: colors.$purple;
                 transform: translateX(2px);
 
                 .user-dropdown__icon-wrap {
-                  background: rgba(109, 76, 255, .13);
+                  background: rgba(colors.$purple, .13);
 
                   > img {
                     filter: $icon-purple;
@@ -293,7 +289,7 @@ html > body > div > header {
                 .user-dropdown__chevron {
                   opacity: 1;
                   transform: translateX(0);
-                  color: #6D4CFF;
+                  color: colors.$purple;
                 }
               }
             }
@@ -303,17 +299,17 @@ html > body > div > header {
               align-items: center;
               gap: 10px;
               padding: 9px 10px;
-              color: #DC2626;
+              color: colors.$danger;
               font-size: .875rem;
               font-weight: 600;
               transition: background .16s ease, transform .16s ease;
 
               &:hover {
-                background: #FEE2E2;
+                background: colors.$danger-bg;
                 transform: translateX(2px);
 
                 .user-dropdown__icon-wrap--danger {
-                  background: rgba(220, 38, 38, .14);
+                  background: rgba(colors.$danger, .14);
 
                   > img {
                     transform: scale(1.08);
@@ -323,7 +319,7 @@ html > body > div > header {
                 .user-dropdown__chevron {
                   opacity: 1;
                   transform: translateX(0);
-                  color: #DC2626;
+                  color: colors.$danger;
                 }
               }
             }
@@ -338,12 +334,7 @@ html > body > div > header {
         height: 44px;
         padding: 0 24px;
         border-radius: 12px;
-        background: linear-gradient(
-                90deg,
-                #2563EB,
-                #6D4CFF,
-                #8B5CF6
-        );
+        background: colors.$brand-gradient;
         transition: .3s ease;
 
         > a {
@@ -354,7 +345,7 @@ html > body > div > header {
 
         &:hover {
           transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(109, 76, 255, .25);
+          box-shadow: 0 10px 25px rgba(colors.$purple, .25);
         }
       }
     }

@@ -33,7 +33,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   <header>
     <div class="container">
       <div id="logo">
-        <NuxtLink to="/home"><img src="../../assets/images/logo_tripfy.png" alt="logo"></NuxtLink>
+        <NuxtLink to="/home"><img src="/images/logo_tripfy.png" alt="logo"></NuxtLink>
       </div>
 
       <button id="menu-mobile-button" @click="toggleSidebar()">

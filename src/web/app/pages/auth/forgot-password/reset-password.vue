@@ -1,5 +1,6 @@
 <script setup lang="ts">
-definePageMeta({layout: 'auth'})
+import "~/scss/pages/auth/forgot-password/reset-password.scss";
+definePageMeta({layout: 'auth-layout-base', path: '/reset-password'})
 
 const route = useRoute()
 const {resetPassword} = useAuth()

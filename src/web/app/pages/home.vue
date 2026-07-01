@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import "~/scss/pages/home.scss"
-import rjImage from '~/assets/images/RJ.jpg'
-import londonImage from '~/assets/images/london.jpg'
-import moneysImage from '~/assets/images/moneys.jpg'
 
 // ── Hero slider ──────────────────────────────────────────────────
 const slides = [
@@ -12,7 +9,7 @@ const slides = [
     title: 'Explore o mundo\ncom o',
     brand: 'Tripfy',
     desc: 'Encontre os melhores lugares, veja o clima, converta moedas e salve seus favoritos. Tudo que você precisa para viajar com mais praticidade.',
-    image: rjImage,
+    image: '/images/RJ.jpg',
     imageAlt: 'Rio de Janeiro',
   },
   {
@@ -21,7 +18,7 @@ const slides = [
     title: 'Saiba o valor da\nsua moeda no',
     brand: 'destino',
     desc: 'Converta valores em tempo real e planeje seus gastos com precisão antes mesmo de embarcar. Taxas atualizadas diariamente.',
-    image: moneysImage,
+    image: '/images/moneys.jpg',
     imageAlt: 'Conversor de moedas',
   },
   {
@@ -30,7 +27,7 @@ const slides = [
     title: 'Descubra o melhor\nde cada',
     brand: 'destino',
     desc: 'Explore atrações, museus, praias e experiências únicas com curadoria feita para você. Salve seus favoritos e leve na viagem.',
-    image: londonImage,
+    image: '/images/london.jpg',
     imageAlt: 'Londres',
   },
 ]
@@ -90,12 +87,6 @@ const features = [
   },
 ]
 
-const stats = [
-  { icon: 'globe', value: '150+', label: 'Países cobertos' },
-  { icon: 'pin', value: '1M+', label: 'Lugares cadastrados' },
-  { icon: 'users', value: '10K+', label: 'Viajantes satisfeitos' },
-  { icon: 'shield', value: '99.9%', label: 'Dados seguros' },
-]
 </script>
 
 <template>
@@ -274,10 +265,10 @@ const stats = [
 
       <!-- Arrows -->
       <button class="home__arrow home__arrow--prev" @click="prev" aria-label="Anterior">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="34" height="34"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <button class="home__arrow home__arrow--next" @click="next" aria-label="Próximo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="34" height="34"><path d="M9 18l6-6-6-6"/></svg>
       </button>
 
       <!-- Dots -->
@@ -359,31 +350,6 @@ const stats = [
       </div>
     </section>
 
-    <!-- ── STATS ──────────────────────────────────────────────────── -->
-    <section class="home__stats">
-      <div class="container home__stats-grid">
-        <div class="home__stat-item">
-          <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="12" r="9" stroke="#6D4CFF" stroke-width="1.8"/><path d="M2 12h20M12 2C9.5 6 8 9 8 12s1.5 6 4 10M12 2c2.5 4 4 7 4 10s-1.5 6-4 10" stroke="#6D4CFF" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          <span class="home__stat-value">150+</span>
-          <span class="home__stat-label">Países cobertos</span>
-        </div>
-        <div class="home__stat-item">
-          <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#6D4CFF" stroke-width="1.8" fill="none"/><circle cx="12" cy="9" r="2.5" stroke="#6D4CFF" stroke-width="1.5" fill="none"/></svg>
-          <span class="home__stat-value">1M+</span>
-          <span class="home__stat-label">Lugares cadastrados</span>
-        </div>
-        <div class="home__stat-item">
-          <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="9" cy="7" r="3" stroke="#6D4CFF" stroke-width="1.8"/><circle cx="15" cy="7" r="3" stroke="#6D4CFF" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-6 6-6h6c3.3 0 6 2.7 6 6" stroke="#6D4CFF" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
-          <span class="home__stat-value">10K+</span>
-          <span class="home__stat-label">Viajantes satisfeitos</span>
-        </div>
-        <div class="home__stat-item">
-          <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2L4 6V12C4 16.5 7.5 20.7 12 22C16.5 20.7 20 16.5 20 12V6L12 2Z" stroke="#6D4CFF" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#6D4CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="home__stat-value">99.9%</span>
-          <span class="home__stat-label">Dados seguros</span>
-        </div>
-      </div>
-    </section>
 
   </div>
 </template>

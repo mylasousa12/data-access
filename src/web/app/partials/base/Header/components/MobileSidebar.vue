@@ -21,7 +21,7 @@ function handleLogout() {
     <aside v-if="isSidebarOpen" class="mobile-sidebar">
 
       <div class="mobile-sidebar__header">
-        <img src="../../../../assets/images/logo_tripfy.png" alt="Tripfy" class="mobile-sidebar__logo">
+        <img src="/images/logo_tripfy.png" alt="Tripfy" class="mobile-sidebar__logo">
         <button @click="closeSidebar()" class="mobile-sidebar__close" aria-label="Fechar menu">
           <AppIcon name="close" />
         </button>

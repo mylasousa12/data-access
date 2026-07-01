@@ -1,0 +1,60 @@
+// ─── Brand ────────────────────────────────────────────────────────
+$navy:         #1A1E7A; // header (nav links, user menu), auth (card title, inputs), profile (nome, valores de campo)
+$blue:         #2563EB; // header (gradiente nav, botão register), footer (gradient bar), auth (botão submit), profile (avatar gradient)
+$purple:       #6D4CFF; // cor primária — CTAs, links, bordas de destaque (usado em todo o site)
+$violet:       #8B5CF6; // header (gradiente nav), footer (gradient bar), auth (botão submit gradient)
+
+// ─── UI ───────────────────────────────────────────────────────────
+$border:       #E9ECF5; // header (borda inferior), auth (card, inputs), profile (seções, campos)
+$muted:        #6B7280; // subtextos em geral — home (descrições), auth (subtítulos, footer), profile (email, loading)
+$light-bg:     #F8FAFC; // header (hover do botão login), home (badge bg), profile (fundo dos campos)
+$purple-light: #F4F1FF; // header (hover do dropdown, fundo do user btn), home (hover ghost btn)
+$cta-bg:       #EEF0FF; // home (seção CTA)
+
+// ─── Text ─────────────────────────────────────────────────────────
+$text-dark:    #374151; // auth (labels do formulário), header (links do dropdown)
+$placeholder:  #9CA3AF; // inputs (placeholder), profile (labels dos campos)
+
+// ─── Feedback ─────────────────────────────────────────────────────
+$danger:        #DC2626; // header (botão logout), auth (mensagem de erro), profile (erro)
+$danger-bg:     #FEE2E2; // auth (fundo da mensagem de erro)
+$danger-border: #FCA5A5; // auth (borda da mensagem de erro)
+$success:       #065F46; // auth (texto da mensagem de sucesso)
+$success-bg:    #D1FAE5; // auth (fundo da mensagem de sucesso)
+$success-border:#6EE7B7; // auth (borda da mensagem de sucesso)
+
+// ─── Acentos ──────────────────────────────────────────────────────
+$purple-accent: #A78BFF; // footer (hover dos ícones sociais, ícone do newsletter)
+$rate-green:    #16A34A; // home (texto do badge de variação cambial)
+$rate-green-bg: #DCFCE7; // home (fundo do badge de variação cambial)
+
+// ─── Hero brand gradients (home) ──────────────────────────────────
+$hero-brand-gradient:        linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6); // home (gradiente do texto da marca no hero desktop)
+$hero-brand-gradient-mobile: linear-gradient(90deg, #93C5FD, #C4B5FD);          // home (gradiente do texto da marca no hero mobile)
+
+// ─── Gradientes globais ───────────────────────────────────────────────────────
+$brand-gradient:        linear-gradient(90deg, #2563EB, #6D4CFF, #8B5CF6);          // header (nav, botão register), footer (barra), sidebar (cta, link ativo), auth (botão)
+$avatar-gradient:       linear-gradient(135deg, #2563EB, #6D4CFF);                  // header (avatar do usuário), profile (avatar)
+$auth-layout-bg:        linear-gradient(135deg, #F0F4FF 0%, #F8F5FF 50%, #EEF2FF 100%); // auth-layout-base (fundo das páginas de autenticação)
+
+// ─── Sombras e overlay ────────────────────────────────────────────────────────
+$shadow-color:          #0F1F63; // base rgba para sombras dos cards (rgba(15, 31, 99, ...))
+$overlay:               #0A0F3C; // sidebar (fundo escuro semi-transparente do overlay)
+
+// ─── Filtros de ícones de navegação ──────────────────────────────────────────
+$filter-nav-icon:       invert(30%) sepia(90%) saturate(600%)  hue-rotate(220deg);  // header/sidebar (ícones com tint roxo)
+$filter-danger-icon:    invert(20%) sepia(90%) saturate(700%)  hue-rotate(335deg);  // header/sidebar (ícones de logout/perigo)
+
+// ─── Feature icons (home) ─────────────────────────────────────────
+// Cores base dos ícones de feature — usadas como background e filtro SVG
+$orange:        #FB923C; // home (feature icon laranja)
+$pink:          #EC4899; // home (feature icon rosa)
+$green:         #10B981; // home (feature icon verde)
+
+// Filtros CSS para colorir SVGs carregados como <img>
+$filter-blue:   invert(29%) sepia(96%) saturate(1200%) hue-rotate(210deg) brightness(95%);   // home (feature icon azul)
+$filter-purple: invert(32%) sepia(80%) saturate(1500%) hue-rotate(240deg) brightness(90%);   // home (feature icon roxo)
+$filter-violet: invert(45%) sepia(60%) saturate(900%)  hue-rotate(240deg) brightness(95%);   // home (feature icon violeta)
+$filter-orange: invert(55%) sepia(80%) saturate(800%)  hue-rotate(10deg)  brightness(100%);  // home (feature icon laranja)
+$filter-pink:   invert(40%) sepia(80%) saturate(800%)  hue-rotate(300deg) brightness(95%);   // home (feature icon rosa)
+$filter-green:  invert(58%) sepia(60%) saturate(600%)  hue-rotate(120deg) brightness(90%);   // home (feature icon verde)

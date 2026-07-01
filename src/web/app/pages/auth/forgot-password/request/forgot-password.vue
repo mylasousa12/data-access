@@ -1,5 +1,6 @@
 <script setup lang="ts">
-definePageMeta({layout: 'auth'})
+import "~/scss/pages/auth/forgot-password/request/forgot-password.scss";
+definePageMeta({layout: 'auth-layout-base', path: '/forgot-password'})
 
 const {forgotPassword} = useAuth()
 const email = ref('')

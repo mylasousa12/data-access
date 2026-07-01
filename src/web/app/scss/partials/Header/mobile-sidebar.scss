@@ -1,16 +1,17 @@
 @use "variables";
+@use "../../settings/colors";
 
-// ─── Variáveis ───────────────────────────────────────────────────────────────
+// ─── Variáveis locais mapeadas para colors ────────────────────────────────────
 
 $sidebar-width:   300px;
 $color-bg:        #FFFFFF;
-$color-border:    #E9ECF5;
-$color-text:      #1A1E7A;
-$color-purple:    #6D4CFF;
-$color-hover-bg:  #F4F1FF;
-$color-gradient:  linear-gradient(90deg, #2563EB, $color-purple, #8B5CF6);
-$color-overlay:   #0A0F3C;
-$icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
+$color-border:    colors.$border;
+$color-text:      colors.$navy;
+$color-purple:    colors.$purple;
+$color-hover-bg:  colors.$purple-light;
+$color-gradient:  colors.$brand-gradient;
+$color-overlay:   colors.$overlay;
+$icon-tint:       colors.$filter-nav-icon;
 
 // ─── Mixins ───────────────────────────────────────────────────────────────────
 
@@ -314,7 +315,7 @@ $icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
     border-radius: 10px;
     background: transparent;
     border: none;
-    color: #DC2626;
+    color: colors.$danger;
     font-size: 15px;
     font-weight: 600;
     font-family: inherit;
@@ -323,11 +324,11 @@ $icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
     transition: background 0.16s ease, transform 0.16s ease;
 
     &:hover {
-      background: #FEE2E2;
+      background: colors.$danger-bg;
       transform: translateX(2px);
 
       .mobile-sidebar__icon-wrap--danger {
-        background: rgba(220, 38, 38, .14);
+        background: rgba(colors.$danger, .14);
 
         > img {
           transform: scale(1.08);
@@ -337,7 +338,7 @@ $icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
       .mobile-sidebar__chevron {
         opacity: 1;
         transform: translateX(0);
-        color: #DC2626;
+        color: colors.$danger;
       }
     }
   }
@@ -359,10 +360,10 @@ $icon-tint:       invert(30%) sepia(90%) saturate(600%) hue-rotate(220deg);
     }
 
     &--danger {
-      background: rgba(220, 38, 38, .07);
+      background: rgba(colors.$danger, .07);
 
       > img {
-        filter: invert(20%) sepia(90%) saturate(700%) hue-rotate(335deg);
+        filter: colors.$filter-danger-icon;
         transition: filter 0.16s ease, transform 0.16s ease;
       }
     }

@@ -4,7 +4,7 @@
 @use "partials/header";
 @use "partials/footer";
 @use "pages/home";
-@use "pages/auth";
+@use "pages/auth/auth-layout-base";
 
 * {
   padding: 0;

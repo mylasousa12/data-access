@@ -1,5 +1,7 @@
+@use "../settings/colors";
+
 .footer {
-  background: #1A1E7A;
+  background: colors.$navy;
   position: relative;
   overflow: hidden;
 
@@ -8,14 +10,14 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(109, 76, 255, .12) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(37, 99, 235, .08) 0%, transparent 55%);
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(colors.$purple, .12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(colors.$blue, .08) 0%, transparent 55%);
     pointer-events: none;
   }
 
   &__gradient-bar {
     height: 3px;
-    background: linear-gradient(90deg, #2563EB 0%, #6D4CFF 50%, #8B5CF6 100%);
+    background: colors.$brand-gradient;
   }
 
   // ── Main area ──────────────────────────────────────────────────
@@ -99,9 +101,9 @@
     svg { width: 15px; height: 15px; }
 
     &:hover {
-      background: rgba(109, 76, 255, .2);
-      border-color: rgba(109, 76, 255, .5);
-      color: #A78BFF;
+      background: rgba(colors.$purple, .2);
+      border-color: rgba(colors.$purple, .5);
+      color: colors.$purple-accent;
       transform: translateY(-2px);
     }
   }
@@ -164,11 +166,6 @@
     }
   }
 
-  &__col-icon {
-    font-size: .65rem;
-    opacity: .45;
-  }
-
   // ── Newsletter card ────────────────────────────────────────────
   &__newsletter {
     background: rgba(255, 255, 255, .06);
@@ -196,12 +193,12 @@
     width: 38px;
     height: 38px;
     border-radius: 10px;
-    background: rgba(109, 76, 255, .25);
-    border: 1px solid rgba(109, 76, 255, .4);
+    background: rgba(colors.$purple, .25);
+    border: 1px solid rgba(colors.$purple, .4);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #A78BFF;
+    color: colors.$purple-accent;
     flex-shrink: 0;
   }
 
@@ -234,12 +231,12 @@
 
     &::placeholder { color: rgba(255, 255, 255, .3); }
 
-    &:focus { border-color: rgba(109, 76, 255, .6); }
+    &:focus { border-color: rgba(colors.$purple, .6); }
   }
 
   &__newsletter-btn {
     width: 100%;
-    background: #6D4CFF;
+    background: colors.$purple;
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
@@ -250,7 +247,7 @@
     transition: background .2s ease, transform .2s ease;
 
     &:hover {
-      background: darken(#6D4CFF, 8%);
+      background: darken(colors.$purple, 8%);
       transform: translateY(-1px);
     }
   }
@@ -298,62 +295,4 @@
     margin: 0;
   }
 
-  &__payments {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
-
-  &__payment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    padding: 0 .5rem;
-    border-radius: 4px;
-    font-size: .65rem;
-    font-weight: 800;
-
-    &--visa {
-      background: #1A1F71;
-      color: #FFFFFF;
-      letter-spacing: .04em;
-      border: 1px solid rgba(255,255,255,.15);
-      font-size: .7rem;
-      padding: 0 .6rem;
-    }
-
-    &--master {
-      background: #EB001B;
-      color: #FFFFFF;
-      font-size: .6rem;
-      font-weight: 800;
-      padding: 0 .5rem;
-    }
-
-    &--amex {
-      background: #2E77BC;
-      color: #FFFFFF;
-      letter-spacing: .03em;
-      font-size: .6rem;
-      padding: 0 .45rem;
-    }
-
-    &--elo {
-      background: #FFCC00;
-      color: #000000;
-      font-weight: 900;
-      font-size: .68rem;
-      padding: 0 .55rem;
-      font-style: italic;
-    }
-
-    &--paypal {
-      background: #003087;
-      color: #FFFFFF;
-      font-size: .6rem;
-      font-weight: 800;
-      padding: 0 .5rem;
-    }
-  }
 }
