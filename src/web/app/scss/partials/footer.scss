@@ -1,4 +1,5 @@
 @use "../settings/colors";
+@use "sass:color";
 
 .footer {
   background: colors.$navy;
@@ -98,13 +99,23 @@
     color: rgba(255, 255, 255, .55);
     transition: all .22s ease;
 
-    svg { width: 15px; height: 15px; }
+    img {
+      width: 15px;
+      height: 15px;
+      filter: brightness(0) invert(1);
+      opacity: .55;
+      transition: opacity .22s ease;
+    }
 
     &:hover {
       background: rgba(colors.$purple, .2);
       border-color: rgba(colors.$purple, .5);
-      color: colors.$purple-accent;
       transform: translateY(-2px);
+
+      img {
+        filter: colors.$filter-nav-icon;
+        opacity: 1;
+      }
     }
   }
 
@@ -247,7 +258,7 @@
     transition: background .2s ease, transform .2s ease;
 
     &:hover {
-      background: darken(colors.$purple, 8%);
+      background: color.adjust(colors.$purple, $lightness: -8%);
       transform: translateY(-1px);
     }
   }

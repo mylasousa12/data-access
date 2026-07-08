@@ -7,7 +7,6 @@ interface RegisterPayload {
     cep: string
     complement?: string
     state: string
-    cpf: string
 }
 
 export const useAuth = () => {

@@ -1,6 +1,7 @@
 @use "../partials/Header/variables";
 @use "../settings/grid";
 @use "../settings/colors";
+@use "sass:color";
 
 html > body > div > main {
   min-height: calc(100vh - #{variables.$header-height});
@@ -33,7 +34,7 @@ html > body > div > main {
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 28px rgba(colors.$purple, 0.42);
-        background: darken(colors.$purple, 6%);
+        background: color.adjust(colors.$purple, $lightness: -6%);
       }
     }
 
@@ -562,7 +563,7 @@ html > body > div > main {
     cursor: pointer;
     transition: background 0.2s;
 
-    &:hover { background: darken(colors.$purple, 8%); }
+    &:hover { background: color.adjust(colors.$purple, $lightness: -8%); }
   }
 
   // ── Features strip ────────────────────────────────────────────

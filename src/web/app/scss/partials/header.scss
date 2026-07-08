@@ -1,5 +1,6 @@
 @use "./Header/variables";
 @use "../settings/colors";
+@use "sass:color";
 
 html > body > div > header {
   position: sticky;
@@ -195,7 +196,7 @@ html > body > div > header {
 
           &:hover {
             background: #EDE8FF;
-            border-color: darken(colors.$purple, 8%);
+            border-color: color.adjust(colors.$purple, $lightness: -8%);
             transform: translateY(-1px);
             box-shadow: 0 6px 18px rgba(colors.$purple, .18);
           }
